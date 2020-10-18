@@ -1,0 +1,25 @@
+{
+  "name": "spotify",
+  "version": "0.1.0",
+  "description": "Fetch Spotify activity for social sharing purposes",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maferland/spotify.git"
+  },
+  "keywords": [
+    "spotify"
+  ],
+  "author": "maferland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maferland/spotify/issues"
+  },
+  "homepage": "https://github.com/maferland/spotify#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  }
+}
