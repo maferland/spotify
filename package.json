@@ -4,7 +4,8 @@
   "description": "Fetch Spotify activity for social sharing purposes",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy"
+    "build": "eleventy --input=site --output=_site",
+    "dev": "yarn build --serve"
   },
   "repository": {
     "type": "git",
