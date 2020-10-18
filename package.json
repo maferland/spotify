@@ -4,8 +4,9 @@
   "description": "Fetch Spotify activity for social sharing purposes",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy --input=site --output=_site",
-    "dev": "yarn build --serve"
+    "build": "yarn tailwind && eleventy --input=site --output=_site",
+    "tailwind": "yarn tailwindcss build styles/tailwind.css -o _site/styles.css",
+    "dev": "export TAILWIND_DEV=true && yarn build --serve"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/maferland/spotify#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0"
+    "@11ty/eleventy": "^0.11.0",
+    "tailwindcss": "^1.9.4"
   }
 }
