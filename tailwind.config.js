@@ -8,7 +8,14 @@ module.exports = {
     content: ['./site/**/*.html'],
   },
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        '6xl': '6rem',
+      },
+      fontFamily: {
+        sans: ['Libre Baskerville', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+    },
   },
   variants: {},
   plugins: [],
