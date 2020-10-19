@@ -4,7 +4,7 @@
   "description": "Fetch Spotify activity for social sharing purposes",
   "main": "index.js",
   "scripts": {
-    "build": "yarn tailwind && eleventy --input=site --output=_site",
+    "build": "rm -rf _site/* && yarn tailwind && eleventy",
     "tailwind": "yarn tailwindcss build styles/tailwind.css -o _site/styles.css",
     "dev": "export TAILWIND_DEV=true && yarn build --serve"
   },
@@ -24,5 +24,10 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
     "tailwindcss": "^1.9.4"
+  },
+  "dependencies": {},
+  "volta": {
+    "node": "12.19.0",
+    "yarn": "1.22.10"
   }
 }
