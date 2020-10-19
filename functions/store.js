@@ -28,7 +28,6 @@ const storeUser = async (user) => {
       }
     })
     .catch((error) => {
-      console.log('error', error)
       return {
         statusCode: 400,
         body: JSON.stringify(error),

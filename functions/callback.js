@@ -1,4 +1,4 @@
-const {redirectUri, clientId, clientSecret, btoa} = require('./utils.js')
+const {getUser, getToken, storeUser} = require('./utils.js')
 const fetch = require('node-fetch')
 
 const errorRes = {
@@ -7,48 +7,6 @@ const errorRes = {
   headers: {
     Location: '/error',
   },
-}
-
-const authorization = `Basic ${btoa(`${clientId}:${clientSecret}`)}`
-
-const getToken = async (code) => {
-  return fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: authorization,
-    },
-    body: `grant_type=authorization_code&code=${code}&redirect_uri=${redirectUri}`,
-  })
-    .then((res) => res.json())
-    .catch(() => ({
-      error: true,
-    }))
-}
-
-const getUser = async (accessToken) => {
-  return fetch('https://api.spotify.com/v1/me', {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
-    .then((res) => res.json())
-    .catch(() => ({
-      error: true,
-    }))
-}
-
-const storeData = async (data) => {
-  return fetch('http://localhost:8888/.netlify/functions/store', {
-    method: 'PUT',
-    body: JSON.stringify(data),
-    headers: {
-      accept: 'application/json',
-    },
-  })
-    .then(() => false)
-    .catch((error) => true)
 }
 
 exports.handler = async (event, context) => {
@@ -75,7 +33,7 @@ exports.handler = async (event, context) => {
     return errorRes
   }
 
-  const storeResult = await storeData({
+  const storeResult = await storeUser({
     ...user,
     accessToken,
     expiresIn,

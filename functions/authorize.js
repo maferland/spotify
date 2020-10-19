@@ -8,7 +8,6 @@ exports.handler = async (event, context) => {
     (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
     '&redirect_uri=' +
     encodeURIComponent(redirectUri)
-  console.log(redirectUri)
   return {
     statusCode: 301,
     body: '',
