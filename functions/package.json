@@ -1,0 +1,20 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "authorize.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "serverless",
+    "js",
+    "faunadb"
+  ],
+  "author": "maferland",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
