@@ -15,18 +15,25 @@ btoa = (text) => Buffer.from(text).toString('base64')
 const authorization = `Basic ${btoa(`${clientId}:${clientSecret}`)}`
 
 exports.getToken = async (code, grant_type = 'authorization_code') => {
+  const body =
+    grant_type !== 'refresh_token'
+      ? `grant_type=${grant_type}&code=${code}&redirect_uri=${redirectUri}`
+      : `grant_type=${grant_type}&refresh_token=${code}&redirect_uri=${redirectUri}`
+
   return fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: authorization,
     },
-    body: `grant_type=${grant_type}&code=${code}&redirect_uri=${redirectUri}`,
+    body,
   })
     .then((res) => res.json())
-    .catch(() => ({
-      error: true,
-    }))
+    .catch((error) => {
+      return {
+        error: true,
+      }
+    })
 }
 
 exports.getUser = async (accessToken) => {
@@ -63,11 +70,11 @@ exports.updateUser = async (user) => {
     secret: process.env.FAUNADB_SERVER_SECRET,
   })
 
-  const item = {data: user}
+  const item = {id: user.id, data: user}
 
   return client
     .query(
-      q.Update(q.Select('ref', q.Get(q.Match(q.Index('id'), user.id))), {
+      q.Replace(q.Select('ref', q.Get(q.Match(q.Index('id'), user.id))), {
         item,
       }),
     )

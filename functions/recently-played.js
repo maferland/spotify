@@ -24,8 +24,15 @@ const findUser = async (userId) => {
 }
 
 const refreshUser = async (user) => {
-  const refreshedUser = await getToken(refreshToken)
-  return await updateUser({...user, ...refreshedUser})
+  const response = await getToken(user.refreshToken, 'refresh_token')
+  const {
+    access_token: accessToken,
+    expires_in: expiresIn,
+    refresh_token: refreshToken,
+  } = response
+  const refreshedUser = {...user, accessToken, expiresIn, refreshToken}
+  await updateUser(refreshedUser)
+  return {user, ...refreshedUser}
 }
 
 const getRecentlyPlayed = async (accessToken) => {
@@ -43,6 +50,7 @@ const getRecentlyPlayed = async (accessToken) => {
       }
     })
     .catch((error) => {
+      console.log(error)
       throw {
         statusCode: 400,
         body: JSON.stringify(error),
@@ -56,11 +64,12 @@ exports.handler = async (event, context) => {
   try {
     let {data: user, ts} = await findUser(id)
     const {expiresIn} = user
-    if (ts + expiresIn > new Date().getTime() * 1000) {
+    if (ts + expiresIn < new Date().getTime() * 1000) {
       user = await refreshUser(user)
     }
     return await getRecentlyPlayed(user.accessToken)
   } catch (error) {
-    return error
+    console.log(error)
+    return {statusCode: 500, body: JSON.stringify(error)}
   }
 }
