@@ -21,12 +21,26 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Installation
+## How to use
 
 ```
-yarn dev
-// or
-npm run dev
+netlify dev
+```
+
+## What's the purpose ?
+
+This project is mostly a helper project (and all the code behing
+[spotify.maferland.com](https://spotify.maferland.com)) for
+[@maferand/spotify-react](https://www.github.com/maferland/spotify-react).
+
+This project store authorization codes to make publicly available your spotify
+most recently listened tracks. If you want to authorize please go
+[here](https://spotify.maferland.com).
+
+Then, you should be able to get your history like this:
+
+```
+curl spotify.maferland.com/.netlify/functions/recently-played/12166023407
 ```
 
 ## Author
