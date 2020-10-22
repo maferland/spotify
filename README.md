@@ -11,13 +11,11 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with
-[DocToc](https://github.com/thlorenz/doctoc)_
 
-- [🎧 @maferland/spotify](#-maferlandspotify)
-  - [Installation](#installation)
-  - [Author](#author)
-  - [LICENSE](#license)
+- [How to use](#how-to-use)
+- [What's the purpose ?](#whats-the-purpose-)
+- [Author](#author)
+- [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
