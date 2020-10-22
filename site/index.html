@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title>@maferland/spotify</title>
     <link rel="stylesheet" href="/styles.css" />
@@ -8,14 +8,34 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-gray-800">
-    <div class="mt-10 bg-green-200 flex justify-center align-center">
-      <div class="mh-auto py-5 w-2/3">
-        <div class="text-5xl">
-          <p>Hello 👋</p>
+  <body class="bg-gray-800 h-full flex flex-col justify-between">
+    <div class="py-10 bg-green-200 flex justify-center align-center">
+      <div class="mh-auto py-5 w-3/5">
+        <div class="text-center">
+          <div class="pb-4 mb-10 border-b-2 border-green-600">
+            <h1 class="text-5xl">
+              <a class="text-pink-600" href="github.com/maferland/spotify"
+                >🎧 @maferland/spotify</a
+              >
+            </h1>
+            <h2 class="text-4xl">
+              Fetch Spotify activity for social sharing purposes
+            </h2>
+          </div>
           <p class="my-5">
-            We need your authorization to fetch your recent activity!
+            This website will go through Spotify OAuth flow. <br />
+            This will give this app the ability to request your Spotify recently
+            played tracks.<br /><br />
+
+            ⚠️ Once access is granted, <strong>everyone</strong> will be able to
+            see your recently played tracks ⚠️
           </p>
+
+          <p class="my-5">
+            If you would like to authorize @maferland/spotify to request your
+            music history follow the instructions at the bottom of this page
+          </p>
+          <strong class="my-10 mr-1">Please click here 👉</strong>
           <a
             href="/.netlify/functions/authorize"
             class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
@@ -24,5 +44,40 @@
         </div>
       </div>
     </div>
+
+    <div class="mt-10 flex justify-center items-center flex-col text-green-200">
+      <h3 class="text-3xl mb-5">FAQ</h3>
+      <br />
+      <ul>
+        <li class="mb-5">
+          <p class="text-green-300 text-2xl">Can I revoke the access?</p>
+          <p>
+            👉 Please follow the instructions
+            <a
+              class="text-pink-600"
+              href="https://support.spotify.com/us/article/revoke-access-from-3rd-party-app/"
+              >here</a
+            >
+            to revoke the access
+          </p>
+        </li>
+        <li class="mb-5">
+          <p class="text-green-300 text-2xl">
+            Who can access my history once the access is granted?
+          </p>
+          <p>
+            👉 The whole world! 🗺️ -- Or at least everyone who knows your
+            Spotify user id.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <footer class="text-green-200 text-center py-2">
+      <a class="text-pink-600" href="https://github.com/maferland"
+        >@maferland</a
+      >
+      - 2020
+    </footer>
   </body>
 </html>
