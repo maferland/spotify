@@ -11,7 +11,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [How to use](#how-to-use)
 - [What's the purpose ?](#whats-the-purpose-)
 - [Author](#author)
@@ -27,15 +26,15 @@ netlify dev
 
 ## What's the purpose ?
 
-This project is mostly a helper project (and all the code behing
+This project is mostly a helper project (but mostly the code behing
 [spotify.maferland.com](https://spotify.maferland.com)) for
 [@maferand/spotify-react](https://www.github.com/maferland/spotify-react).
 
-This project store authorization codes to make publicly available your spotify
-most recently listened tracks. If you want to authorize please go
+This project store authorization codes to make your spotify most recently
+listened tracks publicly available. If you want to authorize please go
 [here](https://spotify.maferland.com).
 
-Then, you should be able to get your history like this:
+Then, you should be able to get your history like this (that's me!):
 
 ```
 curl spotify.maferland.com/.netlify/functions/recently-played/12166023407
