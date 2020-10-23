@@ -28,7 +28,7 @@ netlify dev
 
 This project is mostly a helper project (but mostly the code behing
 [spotify.maferland.com](https://spotify.maferland.com)) for
-[@maferand/spotify-react](https://www.github.com/maferland/spotify-react).
+[@maferland/spotify-react](https://www.github.com/maferland/spotify-react).
 
 This project store authorization codes to make your spotify most recently
 listened tracks publicly available. If you want to authorize please go
