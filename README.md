@@ -34,9 +34,10 @@ This project store authorization codes to make your spotify most recently
 listened tracks publicly available. If you want to authorize please go
 [here](https://spotify.maferland.com).
 
-Then, you should be able to get your history like this (that's me!):
+Then, you should be able to get your history like this:
 
 ```
+// (that's me!)
 curl spotify.maferland.com/.netlify/functions/recently-played/12166023407
 ```
 
