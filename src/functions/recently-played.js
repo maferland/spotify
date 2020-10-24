@@ -10,14 +10,17 @@ const headers = {
 }
 
 exports.handler = async (event, context) => {
-  const {path} = event
+  const {
+    path,
+    queryStringParameters: {limit = 10},
+  } = event
   const id = getId(path)
 
   try {
     const {data: user, ts} = await getUserById(id)
 
     const {accessToken} = await refreshIfExpired(user, ts)
-    const response = await getRecentlyPlayed(accessToken)
+    const response = await getRecentlyPlayed(accessToken, limit)
 
     return {statusCode: 200, headers, body: JSON.stringify(response)}
   } catch (error) {
